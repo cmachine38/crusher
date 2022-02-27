@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='style.css'>
+</head>   
+<body>
+    <div class="header">
+        <p> Business Management</p>
+    </div>
+    <div class="topnav">
+        <a href="#">Masters</a>
+        <a href="#">Payroll</a>
+        <a href="#">Daily Entry</a>
+        <a href="#">Reports</a>
+    </div>
+    <span sec:authentication="principal.authorities">user</span>
+    <div class="content">
+                <?php if (isset($_GET['error'])) { ?>
+                    <p style="color:red;" class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
+    </div>
+    <div class="footer">
+      <p> © 1921-2022, Businesstech.com, Inc. or its affiliates </p>  
+    </div>
+</body>
+</html>
+

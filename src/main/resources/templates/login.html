@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='style.css'>
+	<style type="text/css">
+	.auto-style1 {
+		background-image: url('background.jpg');
+	margin-left: 0px;
+}
+	</style>
+	<link rel="stylesheet" href="webjars/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>   
+<body>
+    <div class="header">
+        <span lang="en-in"><strong>Construction Master</strong></span>
+	</div>
+
+    <div class="content" style="height: 340px">
+		<p th:text=" ${error} + '!'" />
+    	 <form action="/hello" method="post">
+			<table style="width: 100%">
+				<tr>
+					<td style="height: 325px">
+					<table class="auto-style1" style="width: 100%; height: 319px" align="center">
+						<tr>
+							<td style="height: 33px; width: 437px">&nbsp;</td>
+							<td style="height: 33px; width: 105px">&nbsp;</td>
+							<td style="height: 33px; width: 188px;">&nbsp;</td>
+							<td style="height: 33px">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="height: 33px; width: 437px"></td>
+							<td style="height: 33px; width: 105px"></td>
+							<td style="height: 33px; width: 188px;"></td>
+							<td style="height: 33px">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="height: 33px; width: 437px">&nbsp;</td>
+							<td style="height: 33px; width: 105px">&nbsp;</td>
+							<td style="height: 33px; width: 188px;">&nbsp;</td>
+							<td style="height: 33px">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="width: 437px; height: 27px">
+							&nbsp;</td>
+							<td style="width: 105px; height: 27px">
+							<span lang="en-in">User Name</span></td>
+							<td style="height: 27px; width: 188px;">
+							<input name="username" type="text">&nbsp;</td>
+							<td style="height: 27px">
+							&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="width: 437px; height: 8px">
+							&nbsp;</td>
+							<td style="width: 105px; height: 8px">
+							<span lang="en-in">Password</span></td>
+							<td style="height: 8px; width: 188px;">
+							<input name="password" type="password">&nbsp;</td>
+							<td style="height: 8px">
+							&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="width: 437px; height: 6px">&nbsp;</td>
+							<td style="width: 105px; height: 6px"></td>
+							<td style="height: 6px; width: 188px;">
+							<input name="Submit1" type="submit" value="Login">&nbsp;</td>
+							<td style="height: 6px">
+							&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="width: 437px">&nbsp;</td>
+							<td style="width: 105px">&nbsp;</td>
+							<td style="width: 188px">&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+
+   
+
+
+    </div>
+
+	<footer class="fixed-bottom" style="position: fixed; bottom: 0">
+		<div class="container">
+			<span class="text-muted">© 1921-2022, Businesstech.com, Inc. or its affiliates</span>
+		</div>
+	</footer>
+
+
+</body>
+</html>
+
