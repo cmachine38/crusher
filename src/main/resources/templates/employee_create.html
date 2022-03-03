@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='style.css'>
+</head>   
+<body>
+    <div class="header">
+        <p> Business Management</p>
+    </div>
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Master</a>
+            <div class="dropdown-content">
+                <a th:href="@{/employees}" href="#">Employee</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+        <li><a href="#home">Daily Entry</a></li>
+        <li><a href="#news">Payroll</a></li>
+        <li><a href="#news">Reports</a></li>
+    </ul>
+	Logged user: <span sec:authentication="name">Bob</span>
+    <span sec:authentication="principal.authorities">user</span>
+    <div class="content">
+		<div th:if="${newEmployee.firstname} == null">
+			<h1>Enter employee information</h1>
+		</div>
+		<div th:if="${newEmployee.firstname} != null">
+			<h1>Update employee information</h1>
+		</div>
+        <form action="#" th:action="@{/employee_create_add}" th:object="${newEmployee}" method="post">
+        
+        
+            <table style="width: 50%">
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" th:field="*{firstname}" /></td>
+				</tr>
+				<tr>
+					<td>Middle Name</td>
+					<td><input type="text" th:field="*{middlename}" /></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" th:field="*{lastname}" /></td>
+				</tr>
+
+
+				<tr>
+					<td>Aadhar</td>
+					<td th:if="${newEmployee.firstname} == null"> <input type="text" th:field="*{employeeAadhar}" /> </td>
+					<td th:if="${newEmployee.firstname} != null"> <input type="text" th:field="*{employeeAadhar}" readonly /> </td>
+
+<!--					<td>Aadhar</td>-->
+<!--					<td><input type="text" th:field="*{employeeAadhar}" /></td>-->
+				</tr>
+				
+
+				<tr>
+					<td>Address</td>
+					<td><input type="text" th:field="*{address}" /></td>
+				</tr>
+				
+				
+				<tr>
+					<td>Phone</td>
+					<td><input type="text" th:field="*{phone}" /></td>
+				</tr>
+				<tr>
+					<td>Alternate Phone</td>
+					<td><input type="text" th:field="*{alternatePhone}" /></td>
+				</tr>
+
+				<tr>
+					<td>Age</td>
+					<td><input type="text" th:field="*{age}" /></td>
+				</tr>
+				<tr>
+					<td>Sex</td>
+					<td><input type="text" th:field="*{sex}" /></td>
+				</tr>
+				<tr>
+					<td>Marital Status</td>
+					<td><input type="text" th:field="*{maritalStatus}" /></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td> <input type="submit" value="Submit" />    <input type="reset" value="Reset" /></td>
+				</tr>
+
+			</table>
+               
+        </form>
+    </div>
+	<div class="content">
+	</div>
+	<div class="content">
+	</div>
+
+    <div class="footer">
+      <p> Ã‚Â© 1921-2022, Businesstech.com, Inc. or its affiliates </p>  
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='style.css'>
+</head>   
+<body>
+    <div class="header">
+        <p> Business Management</p>
+    </div>
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Master</a>
+            <div class="dropdown-content">
+                <a th:href="@{/employees}" href="#">Employee</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+        <li><a href="#home">Daily Entry</a></li>
+        <li><a href="#news">Payroll</a></li>
+        <li><a href="#news">Reports</a></li>
+    </ul>
+    Logged user: <span sec:authentication="name">Bob</span>
+    <span sec:authentication="principal.authorities">user</span>
+    <div class="content">
+        <h1>Employees</h1>
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Aadhar</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Alternate Phone</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Marital Status</th>
+            <th></th>
+          </tr>
+
+
+        <tr th:each="employee : ${employees}">
+
+            <td>
+                <a th:href="@{/employee_edit(employeeAadhar=${employee.employeeAadhar})}"  href="#"  th:text="${employee.firstname} + ' ' + ${employee.middlename} +' '+  ${employee.lastname}">Name</a>
+            </td>
+            <td th:text="${employee.employeeAadhar}">Aadhar</td>
+            <td th:text="${employee.address}">Address</td>
+            <td th:text="${employee.phone}">Phone</td>
+            <td th:text="${employee.alternatePhone}">Alternate Phone</td>
+            <td th:text="${employee.age}">age</td>
+            <td th:text="${employee.sex}">sex</td>
+            <td th:text="${employee.maritalStatus}">Marital Status</td>
+            <td>
+                <a th:href="@{/employee_delete(employeeAadhar=${employee.employeeAadhar})}"  href="#"  >delete</a>
+            </td>
+
+        </tr>
+
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <a th:href="@{/employee_create}"  href="#"  ><h3>Create Employee</h3></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+
+    </div>
+
+    <div class="footer">
+      <p> Â© 1921-2022, Businesstech.com, Inc. or its affiliates </p>  
+    </div>
+</body>
+</html>
+
