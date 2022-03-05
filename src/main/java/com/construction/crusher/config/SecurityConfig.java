@@ -64,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public ApplicationRunner applicationRunner() {
         return args -> {
-            userDetailService.create(new User("tapan", passwordEncoder().encode("password"),"tapan","maheshwari", "ROLE_USER"));
+            userDetailService.create(new User("user", passwordEncoder().encode("password"),"testuser","testuser", "ROLE_USER"));
             userDetailService.create(new User("ashish", passwordEncoder().encode("password"), "ashish","savita","ROLE_USER"));
         };
     }
